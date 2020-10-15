@@ -1,20 +1,29 @@
 es = [
   { "from": 0, "to": 1, "cost": 2 },
   { "from": 0, "to": 2, "cost": 5 },
+  { "from": 1, "to": 0, "cost": 2 },
   { "from": 1, "to": 2, "cost": 4 },
   { "from": 1, "to": 3, "cost": 6 },
   { "from": 1, "to": 4, "cost": 10 },
+  { "from": 2, "to": 0, "cost": 5 },
+  { "from": 2, "to": 1, "cost": 4 },
   { "from": 2, "to": 3, "cost": 2 },
+  { "from": 3, "to": 1, "cost": 6 },
+  { "from": 3, "to": 2, "cost": 2 },
   { "from": 3, "to": 5, "cost": 1 },
+  { "from": 4, "to": 1, "cost": 10 },
   { "from": 4, "to": 6, "cost": 5 },
   { "from": 4, "to": 5, "cost": 3 },
+  { "from": 5, "to": 3, "cost": 1 },
+  { "from": 5, "to": 4, "cost": 3 },
   { "from": 5, "to": 6, "cost": 9 },
+  { "from": 6, "to": 4, "cost": 5 },
+  { "from": 6, "to": 5, "cost": 9 },
 ]
 
 V = 7
-E = 10
+E = 20
 d = [9999] * V
-print(d)
 
 # the shortest path from s
 def shortest_path(s):
