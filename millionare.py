@@ -18,6 +18,7 @@ def solve(M, P, X):
         prv, nxt = nxt, prv
 
     i = X * n / 1000000
+    print(prv)
     print(prv[i])
 
 
