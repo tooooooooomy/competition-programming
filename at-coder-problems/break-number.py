@@ -2,20 +2,17 @@ def solve(N):
     if N == 1:
         return 1
 
-    a = 0
-    prev_c = 0
-    for i in range(2, N+1, 2):
-        j = i
-        c = 0
-        while j > 0:
-            j /= 2
-            c += 1
+    a = 2
+    while a <= N:
+        a *= 2
 
-        if c > prev_c:
-            a = i
-            prev_c = c
+    if a > N:
+        a //= 2
 
     return a
+
+N = int(input())
+print(solve(N))
 
 print(solve(7) == 4)
 print(solve(32) == 32)
