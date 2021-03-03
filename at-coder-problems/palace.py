@@ -12,3 +12,17 @@ def solve(N, T, A, H):
 print(solve(2, 12, 5, [1000, 2000]) == 1)
 print(solve(3, 21, -11, [81234, 94124, 52141]) == 3)
 
+n = int(input())
+t, a = map(int, input().split())
+h = list(map(int, input().split()))
+import sys
+diff = sys.maxsize
+ans = 0
+for i in range(n):
+  c_d = abs(1000 * a - (1000 * t - h[i] * 6))
+  print(c_d)
+  if c_d < diff:
+    diff = c_d
+    ans = i + 1
+    
+print(ans)

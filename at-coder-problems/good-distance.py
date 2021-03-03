@@ -1,25 +1,18 @@
-def solve(N, D, X):
+n, d = map(int, input().split())
+X = [list(map(int, input().split())) for _ in range(n)]
+ 
+ans = 0
+for i in range(n-1):
+  for j in range(1, n):
+    if i >= j:
+      continue
     a = 0
-    for i in range(N-1):
-        for j in range(1, N):
-            if i >= j:
-                continue
+    for k in range(d):
+      a += (X[i][k] - X[j][k]) ** 2
 
-            su = 0
-            for d in range(D):
-                su += (X[i][d] - X[j][d]) * (X[i][d] - X[j][d])
-            
-
-            b = 1
-            while b * b < su:
-                b += 1
-
-            if b * b == su:
-                a += 1
-
-    return a
+    b = int(a **.5)
+    if abs(b * b - a) < 1e-6:
+      ans += 1
 
 
-print(solve(3, 2, [[1, 2], [5, 5], [-2, 8]]) == 1)
-print(solve(3, 4, [[-3, 7, 8, 2], [-12, 1, 10, 2], [-2, 8, 9, 3]]) == 2)
-print(solve(5, 1, [[1], [2], [3], [4], [5]]) == 10)
+print(ans)
