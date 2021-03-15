@@ -1,25 +1,18 @@
-def solve(N, M, s, t):
-    dic = {}
-    for i in range(N):
-        if not s[i] in dic:
-            dic[s[i]] = 0
+n = int(input())
+s = [input() for _ in range(n)]
+m = int(input())
+t = [input() for _ in range(m)]
 
-        dic[s[i]] += 1
+ndic = {}
 
-    for i in range(M):
-        if not t[i] in dic:
-            dic[t[i]] = 0
+for i in range(n):
+  if s[i] in ndic:
+    ndic[s[i]] += 1
+  else:
+    ndic[s[i]] = 1
+    
+for i in range(m):
+  if t[i] in ndic:
+    ndic[t[i]] = max(0, ndic[t[i]] - 1)
 
-        dic[t[i]] -= 1
-
-    a = 0
-    for k in dic:
-        if dic[k] > a:
-            a = dic[k]
-
-    return a
-
-print(solve(3, 1, ['apple', 'apple', 'orange'], ['grape']) == 2)
-print(solve(3, 5, ['apple', 'apple', 'orange'], ['apple', 'apple', 'apple', 'apple', 'apple']) == 1)
-print(solve(1, 10, ['voldemort'], ['voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort', 'voldemort']) == 0)
-print(solve(6, 5, ['red', 'red', 'blue', 'yellow', 'yellow', 'red'], ['red', 'red', 'yellow', 'green', 'blue']) == 1)
+print(max(ndic.values()))
